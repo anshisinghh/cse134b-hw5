@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="This is Anshi Singh's personal portfolio website.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Personal Portfolio</title>
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    </head>
+    <body>
+        <header>
+            <h1>Anshi Singh</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">About Me</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="skills-container">
+                <h2>Programming Languages</h2>
+                <ul>
+                    <li>C/C++</li>
+                    <li>Python</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>MIPS Assembly</li>
+                    <li>Swift</li>
+                    <li>Typescript</li>
+                </ul>
+                <h2>Databases & ORMs</h2>
+                <ul>
+                    <li>SQL (Postgres)</li>
+                    <li>TypeORM</li>
+                </ul>
+                <h2>Developer Tools & Platforms</h2>
+                <ul>
+                    <li>AWS</li>
+                    <li>Ethereum</li>
+                    <li>Git</li>
+                    <li>Docker</li>
+                    <li>VS Code</li>
+                </ul>
+                <h2>Soft Skills</h2>
+                <ul>
+                    <li>Communication</li>
+                    <li>Teamwork</li>
+                    <li>Problem Solving</li>
+                </ul>
+            </section>  
+        </main>
+        <footer>
+            <button class="dark-light-toggle" style="display: none;">&#127771;</button>
+            <noscript>
+                <p>Dark mode only available with JavaScript.</p>
+            </noscript>
+            <p class="footer-design">Made by Anshi</p>
+            <p>Contact Me: <a href="mailto:anshisingh730@gmail.com" class="footeremail"><i>anshisingh730@gmail.com</i></a></p>
+            <script>
+                const button = document.querySelector(".dark-light-toggle");
+                const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            
+                const currentTheme = localStorage.getItem("theme");
+                if (currentTheme == "dark") {
+                    document.body.classList.toggle("dark-mode");
+                    button.innerHTML = "&#127771;";
+                } else if (currentTheme == "light") {
+                    document.body.classList.toggle("light-mode");
+                    button.innerHTML = "&#127774;";
+                }
+            
+                button.addEventListener("click", function () {
+                    if (prefersDarkScheme.matches) {
+                        document.body.classList.toggle("light-mode");
+                        var theme = document.body.classList.contains("light-mode") ? "light" : "dark";
+                        button.innerHTML = theme === "light" ? "&#127774;" : "&#127771;";
+                    } else {
+                        document.body.classList.toggle("dark-mode");
+                        var theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+                        button.innerHTML = theme === "dark" ? "&#127771;" : "&#127774;";
+                    }
+                    localStorage.setItem("theme", theme);
+                });
+
+                button.style.display = "inline-block";
+            </script>           
+        </footer>
+    </body>
+</html>

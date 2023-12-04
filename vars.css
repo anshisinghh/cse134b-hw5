@@ -1,0 +1,27 @@
+:root {
+    --light-background-color: #dad7cd; 
+    --dark-text-color: rgb(0, 0, 0);
+    --dark-background-color: rgb(11, 54, 11);
+    --dark-content-background-color: rgb(0, 0, 0);
+    --light-content-background-color: #5e8b62;
+    --light-text-color: rgb(255, 255, 255);
+    --header-footer-text-color: rgb(221, 221, 221);
+    --button-text-color: #fff;
+    --dark-border-color: rgb(0, 0, 0);
+    --light-border-color: rgb(255, 255, 255);
+
+    --mail-color: color(rec2020 0.2 0.6 0.9);
+    --phone-color: color-mix(in oklab, #20db1d, #4179fc 10%);
+    --linkedin-color: #0056b3;
+    --github-color: color-mix(in oklab, #000000, #ffffff 30%);
+    --pdf-color: color(display-p3 0.8 0.2 0.1);
+
+    --heading-size: 2.5em;
+    --h2-size: 2em;
+    --h3-size: 1.5em;
+    --text-size: 1em;
+    --body-size: 1.25em;
+    --footer-size: 1em;
+    --nav-size: 1.25em;
+}
+
