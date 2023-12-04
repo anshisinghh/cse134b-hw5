@@ -2,244 +2,25 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="This is Anshi Singh's personal portfolio website.">
+        <meta name="description" content="Ratings.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Personal Portfolio</title>
+        <title>Rating</title>
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
-        <script src="https://kit.fontawesome.com/42b03e614a.js" crossorigin="anonymous"></script>    
     </head>
     <body>
         <header>
-            <h1>Anshi Singh</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">About Me</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="experiences.html">Experiences</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                </ul>
-            </nav>
+            <h1>Rating</h1>
         </header>
         <main>
-            <section id="about-me-container">
-                <picture class="right-float-headshot">
-                    <source media="(min-width: 767px)" srcset="headshot.png" width="200">
-                    <img src="headshot.png" alt="Anshi's Headshot" width="100">
-                </picture>
-                <h2>Hi, I'm Anshi,</h2>
-                <p>I am a Computer Science student at UC San Diego, with an expected graduation date of June 2025. I am passionate about programming and both full-stack and back-end development, with experiences in mobile app development, as well. I have done extensive coursework in data structures, algorithms, and programming in Python and C++. In addition, I have industry level internship experience as a student consultant who worked on a project on blockchain technology. <strong>Currently seeking a SWE internship for summer 2024.</strong></p>
-                <p>I am sharing my educational and programming journey. Connect with me!</p>
-                <ul class="contact-buttons">
-                    <li><a href="mailto:anshisingh730@gmail.com" id="mail" class="contact-button"><i class="fa-solid fa-envelope"></i></a></li>
-                    <li><a href="tel:+19493534274" id="phone" class="contact-button"><i class="fa-solid fa-phone"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/anshisingh/" id="linkedin" class="contact-button" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/anshisinghh" id="github" class="contact-button" target="_blank"><i class="fa-brands fa-github"></i></a></li>
-                    <li><a href="Anshi_Singh_Resume.pdf" id="pdf" class="contact-button" download><i class="fa-solid fa-file-pdf"></i></a></li>
-                </ul>
-            </section>
-            <section id="get-in-touch-container">
-                <h2>Get In Touch</h2>
-                <form id="contact-form" action="https://httpbin.org/post" method="POST">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe" minlength="2" maxlength="100">
-                    <output id="nameError"></output>
-                    <output id="nameInfo"></output>
-                    <br>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required pattern="[a-z0-9.]+@[a-z0-9.]+\.[a-z]{2,}$" title="Enter valid email!" placeholder="JohnDoe@test.com" minlength="8" maxlength="64">
-                    <output id="emailError"></output>
-                    <output id="emailInfo"></output>
-                    <br>
-                    <label for="comments">Add your details:</label>
-                    <textarea id="comments" name="comments" required maxlength="200" pattern="[a-zA-Z0-9.,!? ]+" placeholder="Add your comments here!"></textarea>
-                    <output id="commentsError"></output>
-                    <output id="commentsInfo"></output>
-                    <br>
-                    <input type="hidden" name="possible_bot" value="true">
-                    <input type="hidden" id="formError" name="formError">
-                    <button type="submit">Save</button>
-                    <ouput id="formInfo"></ouput>
+            <rating-widget>
+                <form action="https://httpbin.org/post" method="POST"> 
+                    <label for="rating">How satisfied are you?</label> 
+                    <input type="hidden" name= "question" value= "How satisfied are you?">
+                    <input type="hidden" name= "sentBy" value= "HTML"> 
+                    <input type="number" id="rating" name="rating" min="1" max="5" value="0" required>
+                    <button type="submit">Submit</button> 
                 </form>
-                <script>
-                    let form = document.querySelector("form");
-                    
-                    let name = document.getElementById("name");
-                    let email = document.getElementById("email");
-                    let comments = document.getElementById("comments");
-
-                    let nameError = document.getElementById("nameError");
-                    let emailError = document.getElementById("emailError");
-                    let commentsError = document.getElementById("commentsError");
-
-                    let commentsInfo = document.getElementById("commentsInfo");
-
-                    const namePattern = /^[a-zA-Z' ]+$/;
-                    const emailPattern = /^[a-z0-9.]+@[a-z0-9.]+\.[a-z]{2,}$/;
-                    const commentsPattern = /^[a-zA-Z0-9.,';:!?() ]+$/;
-
-                    let form_errors = [];
-                    let errorForm = document.getElementById("formError");
-
-                    name.addEventListener("input", () => {
-                        const isNameValid = namePattern.test(name.value);  
-                        const isNameEmpty = name.validity.valueMissing;
-
-                        if (isNameEmpty) {
-                            nameError.textContent = "Name is required.";
-                            nameError.className = "error stay";
-                            form_errors.push("Empty field.");
-                            errorForm.value = JSON.stringify(form_errors);
-                        } else if (!isNameValid) {   
-                            nameError.textContent = "Invalid character.";
-                            nameError.className = "error active";
-                            form_errors.push("Illegal character was used.");
-                            errorForm.value = JSON.stringify(form_errors);
-                        } else if (isNameValid) {  
-                            nameError.textContent = "";
-                            nameError.className = "error";
-                        }
-                    });
-                    
-                    email.addEventListener("input", () => {
-                        const isEmailValid = emailPattern.test(email.value);  
-                        const isEmailEmpty = email.validity.valueMissing;
-
-                        if (isEmailEmpty) {
-                            emailError.textContent = "Email is required.";
-                            emailError.className = "error active";
-                            form_errors.push("Empty field.");
-                            errorForm.value = JSON.stringify(form_errors);
-                        } else if (!isEmailValid) {   
-                            emailError.textContent = "Enter a valid email.";
-                            emailError.className = "error stay";
-                            form_errors.push("Illegal character was used.");
-                            errorForm.value = JSON.stringify(form_errors);
-                        } else if (isEmailValid) {  
-                            emailError.textContent = "";
-                            emailError.className = "error";
-                        }
-                    });
-
-                    comments.addEventListener("input", () => {
-                        const isCommentsValid = commentsPattern.test(comments.value);  
-                        const isCommentsEmpty = comments.validity.valueMissing;
-
-                        if (isCommentsEmpty) {
-                            commentsError.textContent = "Comment is required.";
-                            commentsError.className = "error stay";
-                            form_errors.push("Empty field.");
-                            errorForm.value = JSON.stringify(form_errors);
-                        } else if (!isCommentsValid) {   
-                            commentsError.textContent = "Invalid character.";
-                            commentsError.className = "error active";
-                            form_errors.push("Illegal character was used.");
-                            errorForm.value = JSON.stringify(form_errors);
-                        } else if (isCommentsValid) {  
-                            commentsError.textContent = "";
-                            commentsError.className = "error";
-                        }
-                    });
-
-                    form.addEventListener("submit", (event) => {
-                        event.preventDefault();
-
-                        const isNameValid = namePattern.test(name.value); 
-                        const isEmailValid = emailPattern.test(email.value); 
-                        const isCommentsValid = commentsPattern.test(comments.value); 
-                        
-                        const isNameEmpty = name.validity.valueMissing;
-                        const isEmailEmpty = email.validity.valueMissing;
-                        const isCommentsEmpty = comments.validity.valueMissing;
-
-                        if (form.checkValidity()) {
-                            alert("Submitted.");
-                        }
-                        else {
-                            alert("Fill out form correctly.");
-                        }
-
-                        if (!isNameValid || isNameEmpty) {
-                            nameError.textContent = "Enter a valid name.";
-                            nameError.className = "error";
-                        } else {
-                            nameError.textContent = "";
-                            nameError.className = "error";
-                        }
-
-                        if (!isEmailValid || isEmailEmpty) {
-                            emailError.textContent = "Enter a valid email.";
-                            emailError.className = "error";
-                        } else {
-                            emailError.textContent = "";
-                            emailError.className = "error";
-                        }
-
-                        if (!isCommentsValid || isCommentsEmpty) {
-                            commentsError.textContent = "Enter a valid comment.";
-                            commentsError.className = "error";
-                        } else {
-                            commentsError.textContent = "";
-                            commentsError.className = "error";
-                        }
-
-                        if (isNameValid && isEmailValid && isCommentsValid && !isNameEmpty && !isEmailEmpty && !isCommentsEmpty) {
-                            form.submit();
-                        }
-                    });
-
-                    comments.addEventListener("input", () => {
-                        let remainingCharacters = 200 - comments.value.length;
-        
-                        if (remainingCharacters <= 0) {
-                            commentsInfo.textContent = `${remainingCharacters} characters remaining.`;
-                            commentsInfo.style.backgroundColor = "red";
-                        } else if (remainingCharacters <= 20) {
-                            commentsInfo.textContent = `${remainingCharacters} characters remaining.`;
-                            commentsInfo.style.backgroundColor = "orange";
-                        } else {
-                            commentsInfo.textContent = `${remainingCharacters} characters remaining.`;
-                            commentsInfo.style.backgroundColor = "green";
-                        }
-                    });
-                </script>
-            </section>
+            </rating-widget>
         </main>
-        <footer>
-            <button class="dark-light-toggle" style="display: none;">&#127771;</button>
-            <noscript>
-                <p>Dark mode only available with JavaScript.</p>
-            </noscript>
-            <p class="footer-design">Made by Anshi</p>
-            <p>Contact Me: <a href="mailto:anshisingh730@gmail.com" class="footeremail"><i>anshisingh730@gmail.com</i></a></p>
-            <script>
-                const button = document.querySelector(".dark-light-toggle");
-                const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-            
-                const currentTheme = localStorage.getItem("theme");
-                if (currentTheme == "dark") {
-                    document.body.classList.toggle("dark-mode");
-                    button.innerHTML = "&#127771;";
-                } else if (currentTheme == "light") {
-                    document.body.classList.toggle("light-mode");
-                    button.innerHTML = "&#127774;";
-                }
-            
-                button.addEventListener("click", function () {
-                    if (prefersDarkScheme.matches) {
-                        document.body.classList.toggle("light-mode");
-                        var theme = document.body.classList.contains("light-mode") ? "light" : "dark";
-                        button.innerHTML = theme === "light" ? "&#127774;" : "&#127771;";
-                    } else {
-                        document.body.classList.toggle("dark-mode");
-                        var theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
-                        button.innerHTML = theme === "dark" ? "&#127771;" : "&#127774;";
-                    }
-                    localStorage.setItem("theme", theme);
-                });
-
-                button.style.display = "inline-block";
-            </script>             
-        </footer>
     </body>
 </html>
