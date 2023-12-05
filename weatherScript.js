@@ -12,9 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const apiEndpoint = `https://api.weather.gov/points/${latitude},${longitude}`;
 
+    console.log("Fetching weather data from:", apiEndpoint);
+
     fetch(apiEndpoint)
         .then(response => response.json())
         .then(data => {
+            console.log("Weather data received:", data);
+
             const city = data.properties.relativeLocation.properties.city;
             const state = data.properties.relativeLocation.properties.state;
 
@@ -23,10 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
             weatherWidgetLocation.appendChild(locationElement);
 
             const forecastLink = data.properties.forecast;
+            console.log("Fetching forecast data from:", forecastLink);
             return fetch(forecastLink);
         })
         .then(response => response.json())
         .then(data => {
+            console.log("Forecast data received:", data);
+
             const forecastPeriods = data.properties.periods.slice(0, 5);
 
             forecastPeriods.forEach((period) => {
