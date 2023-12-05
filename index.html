@@ -2,16 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="Rating Widget.">
+        <meta name="description" content="Weather and rating widgets.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Rating Widget</title>
+        <title>Widgets</title>
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
     </head>
     <body>
         <header>
-            <h1>Rating Widget</h1>
+            <h1>Homework 5</h1>
         </header>
         <main>
+            <h2>Weather Widget</h2>
+            <noscript>
+                <p>Current Weather Conditions Unavailable.</p>
+            </noscript>
+            <div id="weather-widget-location"></div>
+            <div id="weather-widget-container"></div>
+            <script src="script.js"></script>
+            <h2>Rating Widget</h2>
             <noscript>
                 <rating-widget>
                     <form action="https://httpbin.org/post" method="POST"> 
@@ -19,7 +27,7 @@
                         <input type="hidden" name= "question" value= "How satisfied are you?">
                         <input type="hidden" name= "sentBy" value= "HTML"> 
                         <input type="number" id="rating" name="rating" min="1" max="5" value="0" required>
-                        <button type="submit">Submit</button> 
+                        <button id="submitButton" type="submit">Submit</button> 
                     </form>
                 </rating-widget>
             </noscript>
@@ -44,14 +52,12 @@
                         star.style.color = '#5e8b62';
                     }
                 }
-                
                 function resetStars() {
                     for (let i = 1; i <= 5; i++) {
                         const star = document.querySelector(`[for=star${i}]`);
-                        star.style.color = 'white';
+                        star.style.color = 'black';
                     }
                 }
-                
                 function submitRating(rating) {
                     document.getElementById('ratingForm').style.display = 'none';
                     const thankYouMessage = document.getElementById('thankYouMessage');
@@ -82,7 +88,6 @@
                     resetButton.style.display = 'block';
 
                     const formData = new FormData(ratingForm);
-                    formData.append('question', document.getElementById('ratingQuestion').innerText);
                     formData.append('rating', rating);
 
                     const headers = new Headers();
