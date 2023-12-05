@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // const longitude = -117.8674;
 
     const apiEndpoint = `https://api.weather.gov/points/${latitude},${longitude}`;
-
     console.log("Fetching weather data from:", apiEndpoint);
 
     fetch(apiEndpoint)
@@ -35,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Forecast data received:", data);
 
             const forecastPeriods = data.properties.periods.slice(0, 5);
-
             forecastPeriods.forEach((period) => {
                 const periodElement = document.createElement("div");
                 periodElement.classList.add("weather-widget");
