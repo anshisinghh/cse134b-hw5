@@ -41,6 +41,7 @@ main {
 label {
     cursor: pointer;
 }
+
 #resetButton {
     background-color: #5e8b62;
     color: #fff;
@@ -56,11 +57,12 @@ label {
 #resetButton:hover {
     background-color: rgb(11, 54, 11);
 }
+
 #submitButton {
     background-color: #5e8b62;
     color: #fff;
     font-size: 0.75em;
-    border: none;
+    border: 1px solid #fff;
     font-family: 'Abhaya Libre', 'Times New Roman', Arial, sans-serif;
     cursor: pointer;
     transition: background-color 0.3s ease;
