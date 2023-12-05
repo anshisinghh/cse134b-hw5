@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const latitude = 32.8708;
     const longitude = -117.2508;
 
+    // Irvine's coordinates
+    // const latitude = 33.6798;
+    // const longitude = -117.8674;
+
     const apiEndpoint = `https://api.weather.gov/points/${latitude},${longitude}`;
 
     fetch(apiEndpoint)
