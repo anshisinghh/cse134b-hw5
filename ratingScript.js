@@ -25,10 +25,10 @@ function submitRating(rating) {
             thankYouMessage.innerText = "Thank you for rating 1 star. We will do better!";
             break;
         case 2:
-            thankYouMessage.innerText = "Thank you for rating 2 stars. We appreciate your feedback!";
+            thankYouMessage.innerText = "Thank you for rating 2 stars. Your feedback helps us improve!";
             break;
         case 3:
-            thankYouMessage.innerText = "Thank you for rating 3 stars. Your feedback helps us improve!";
+            thankYouMessage.innerText = "Thank you for rating 3 stars. We appreciate your feedback!";
             break;
         case 4:
             thankYouMessage.innerText = "Thank you for rating 4 stars. We're glad you had a positive experience!";
