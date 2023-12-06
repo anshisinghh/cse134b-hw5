@@ -58,15 +58,15 @@ document.addEventListener("DOMContentLoaded", function () {
     locationSelector.addEventListener("change", function () {
         const selectedLocation = locationSelector.value;
         if (selectedLocation === "LaJolla") {
-            fetchWeatherData(32.8708, -117.2508); // La Jolla's coordinates
+            fetchWeatherData(32.8708, -117.2508); 
         } else if (selectedLocation === "Irvine") {
-            fetchWeatherData(33.6798, -117.8674); // Irvine's coordinates
+            fetchWeatherData(33.6798, -117.8674); 
         } else if (selectedLocation === "NewYorkCity") {
-            fetchWeatherData(40.78, -73.97) // New York's coordinates
+            fetchWeatherData(40.78, -73.97) 
         } else if (selectedLocation === "Austin") {
-            fetchWeatherData(30.32, -97.77) // Austin's coordinates
+            fetchWeatherData(30.32, -97.77) 
         } else if (selectedLocation === "Miami") {
-            fetchWeatherData(25.79, -80.32) // Miami's coordinates
+            fetchWeatherData(25.79, -80.32)
         }
     });
 
