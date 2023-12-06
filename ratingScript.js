@@ -13,6 +13,9 @@ function resetStars() {
 }
 
 function submitRating(rating) {
+    const ratingForm = document.getElementById('ratingForm');
+    ratingForm.reset();
+
     document.getElementById('ratingForm').style.display = 'none';
     const thankYouMessage = document.getElementById('thankYouMessage');
     thankYouMessage.style.display = 'block';
