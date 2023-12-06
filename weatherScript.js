@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             fetchWeatherData(32.8708, -117.2508); // La Jolla's coordinates
         } else if (selectedLocation === "Irvine") {
             fetchWeatherData(33.6798, -117.8674); // Irvine's coordinates
-        } else if (selectedLocation === "NewYork") {
+        } else if (selectedLocation === "NewYorkCity") {
             fetchWeatherData(40.78, -73.97) // New York's coordinates
         } else if (selectedLocation === "Austin") {
             fetchWeatherData(30.32, -97.77) // Austin's coordinates
