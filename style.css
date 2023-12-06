@@ -104,3 +104,20 @@ label {
     }
 }
 
+#locationSelector {
+    font-family: 'Abhaya Libre', 'Times New Roman', Arial, sans-serif;
+    margin: 1em;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 0.5em;
+    font-size: 0.75em;
+}
+#locationSelector:hover {
+    border-color: #5e8b62;
+    cursor: pointer;
+}
+#locationSelector:focus {
+    outline: none;
+    border-color: #5e8b62;
+}
