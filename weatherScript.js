@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const weatherWidgetLocation = document.getElementById("weather-widget-location");
     const locationSelector = document.getElementById("locationSelector");
 
+    locationSelector.style.display = "block";
+
     function fetchWeatherData(latitude, longitude) {
         const apiEndpoint = `https://api.weather.gov/points/${latitude},${longitude}`;
         console.log("Fetching weather data from:", apiEndpoint);
