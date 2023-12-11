@@ -51,8 +51,9 @@ label {
     font-family: 'Abhaya Libre', 'Times New Roman', Arial, sans-serif;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: flex;
     align-items: center;
+    margin: 0 auto;
+    display: block; 
 }
 #resetButton:hover {
     background-color: rgb(11, 54, 11);
